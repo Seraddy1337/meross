@@ -9,7 +9,14 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "css-loader": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^4.0.1",
+    "sass-loader": "^10.0.2",
+    "scss-loader": "^0.0.1",
+    "vue": "^2.6.11",
+    "vue-router": "^3.4.3",
+    "vue-swipe": "^2.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
