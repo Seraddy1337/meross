@@ -1,5 +1,5 @@
 <template>
-  <div class="banner">
+  <div class="home">
     <Swipe class="section-1 swipe" auto=5000>
         <SwipeItem class="slide1">
           <img class="section-image section-loop-node" src="https://img.technology.aukey.com/Aukey/1599479623318.jpg">
@@ -20,7 +20,7 @@
     </Swipe>
     <div class="section-2">
       <video autoplay loop src="https://img.technology.aukey.com/Aukey/1584335141312.mp4"></video>
-      <div class="sectionInfo">
+      <div class="section-info">
         <div class="subtitle">MSG100</div>
         <div class="title">FULL SPEED. HALF SIZE.</div>
         <div class="btn-wrap">
@@ -35,7 +35,7 @@
     </div>
     <div class="section-3">
       <video autoplay loop src="https://img.technology.aukey.com/Aukey/1584335381830.mp4"></video>
-      <div class="sectionInfo">
+      <div class="section-info">
         <div class="subtitle">MSS110</div>
         <div class="title">FULL SPEED. HALF SIZE.</div>
         <div class="btn-wrap">
@@ -50,7 +50,7 @@
     </div>
     <div class="section-2">
       <video autoplay loop src="https://img.technology.aukey.com/Aukey/1584335141312.mp4"></video>
-      <div class="sectionInfo">
+      <div class="section-info">
         <div class="subtitle">MSS510</div>
         <div class="title">FULL SPEED. HALF SIZE.</div>
         <div class="btn-wrap">
@@ -88,23 +88,6 @@
         </div>
       </div>
     </div>
-    <div class="footer">
-      <div class="footer-wrap">
-        <div class="footer-item" v-for="item in footer" :key="item.title">
-          <div class="footer-title">
-            {{item.title}}
-          </div>
-          <div class="footer-list">
-            <div class="footer-list-item" v-for="i in item.list" :key="i">
-              {{i}}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>Copyright © 2017-2020 Meross Technology Limited. All Rights Reserved.</div>
-      <div>Privacy Policy Terms of Use</div>
-      <div>蜀ICP备19003165号</div>
-    </div>
   </div>
 </template>
 
@@ -112,19 +95,13 @@
 import 'vue-swipe/dist/vue-swipe.css';
 import { Swipe, SwipeItem } from 'vue-swipe';
 export default {
-  name: 'Banner',
+  name: 'Home',
   components: {
     Swipe,
     SwipeItem,
   },
   data() {
     return {
-       footer: [
-        {title: 'Follw us', list: ['Facebook', 'Twitter', 'Instagram', 'Youtube']},
-        {title: 'Community ', list: ['Blog', 'Forum']},
-        {title: 'Support', list: ['FAQs', 'Contact us', 'Warranty', 'Cloud Service']},
-        {title: 'About us', list: ['Our company', 'With your life']},
-      ]
     }
   },
   props: {
@@ -135,6 +112,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
+.home{
   .swipe {
     height: 40rem;
     color: #fff;
@@ -190,7 +168,7 @@ export default {
     video {
       width: 100%;
     }
-    .sectionInfo {
+    .section-info {
       position: absolute;
       right: 8%;
       top: 38%;
@@ -226,7 +204,7 @@ export default {
     video {
       width: 100%;
     }
-    .sectionInfo {
+    .section-info {
       position: absolute;
       left: 8%;
       top: 38%;
@@ -282,33 +260,5 @@ export default {
         }
       }
   }
-  .footer {
-    .footer-wrap {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 22rem;
-      .footer-item {
-        text-align: left;
-        .footer-title {
-          font-size: 1.2rem;
-          font-weight: bold;
-          color: #fff;
-        }
-        .footer-list {
-          padding-top: 0.6rem;
-          .footer-list-item {
-            line-height: 1.2rem;
-            color: #ccc;
-            cursor: pointer;
-          }
-        }
-      }
-      margin-bottom: 2rem;
-    }
-    padding: 2rem 0;
-    text-align: center;
-    background-color: #000;
-    color: #ccc;
-    font-size: 0.8rem;
-  }
+}
 </style>

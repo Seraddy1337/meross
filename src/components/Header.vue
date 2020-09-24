@@ -1,12 +1,14 @@
 <template>
   <div class="header">
     <div class="header-menu" @mouseleave="setActiveMenu('')">
-      <img class="logo" alt="logo" src="../assets/logo.png">
+      <router-link to='/' replace>
+        <img class="logo" alt="logo" src="../assets/logo.png">
+      </router-link>
       <div class="menu-item" v-for="item in menus" :key="item.title" @mouseover="setActiveMenu(item.title)"> 
         {{item.title}}
         <div class="submenu" :key="item.title" v-bind:class="{ active: activeMenu === item.title}">
           <div class="submenu-item" v-for="i in item.menu" :key="i.title" > 
-            <span>{{i.title}}</span>
+            <router-link to='/product'>{{i.title}}</router-link>
             <div class="thirdmenu">
               <div class="third-item" v-for="n in i.thirdMenu" :key="n" > 
                 <span>{{n}}</span>
@@ -29,11 +31,16 @@ export default {
       activeMenu: '',
       menus: [
             { title: 'SMART' , menu: [
-            { title:  'Smart Plug', thirdMenu: ['Single-hole plug', 'Dual-hole plug', 'Surge protector', 'Outdoor plug'] },
-            { title:  'Smart Lighting', thirdMenu: ['Light bulb', 'Light strip', 'Ambient light'] },
-            { title:  'Smart Switch', thirdMenu: ['Wall switch', 'Dimmer switch']},
-            { title:  'Garage Door Opener', thirdMenu: ['Smart opener', 'Physical remote'] },
-            { title:  'Smart Home', thirdMenu: ['Thermostat valve and sensor', 'Baby machine', 'Humidifier', 'Remotes'] },
+            // { title:  'Smart Plug', thirdMenu: ['Single-hole plug', 'Dual-hole plug', 'Surge protector', 'Outdoor plug'] },
+            // { title:  'Smart Lighting', thirdMenu: ['Light bulb', 'Light strip', 'Ambient light'] },
+            // { title:  'Smart Switch', thirdMenu: ['Wall switch', 'Dimmer switch']},
+            // { title:  'Garage Door Opener', thirdMenu: ['Smart opener', 'Physical remote'] },
+            // { title:  'Smart Home', thirdMenu: ['Thermostat valve and sensor', 'Baby machine', 'Humidifier', 'Remotes'] },
+              { title: 'Smart Plug' },
+              { title: 'Smart Lighting' },
+              { title: 'Smart Switch' },
+              { title: 'Garage Door Opener' },
+              { title: 'Smart Home' },
             ],
           },
           { title: 'GADGETS' , menu: [
@@ -67,7 +74,7 @@ export default {
   methods: {
     setActiveMenu: function(item) {
       this.activeMenu = item
-    }
+    },
   },
 }
 </script>
@@ -140,11 +147,13 @@ export default {
           .submenu-item {
             width: 12rem;
             font-size: 0.8rem;
-            >span {
+            >a {
                 display: inline-block;
                 cursor: pointer;
                 transition: .4s;
                 font-weight: bold;
+                text-decoration: none;
+                color: #fff;
                 &:hover {
                   color: #21ccbf;
                   transform: translatey(-0.3rem)
