@@ -18,6 +18,9 @@
         </div>  
       </div>
     </div>
+    <div @click="goTop()" v-bind:class="{ 'show': goTopDisplay, 'go-top': true }">
+
+    </div>
   </div>
 </template>
 
@@ -28,6 +31,7 @@ export default {
   },
   data() {
     return {
+      goTopDisplay: false,
       activeMenu: '',
       menus: [
             { title: 'SMART' , menu: [
@@ -75,7 +79,29 @@ export default {
     setActiveMenu: function(item) {
       this.activeMenu = item
     },
+    goTop: function () {
+      const oldTop = document.documentElement.scrollTop
+      const timer = window.setInterval(()=>{
+        const speed = oldTop / 10 > 10 ? oldTop / 10 : 10;
+        if (document.documentElement.scrollTop > 0) {
+            document.documentElement.scrollTop-=speed;
+        } else {
+            clearInterval(timer);
+        }
+      }, 10);
+    }
   },
+  mounted() {
+    const that = this;
+    document.addEventListener('scroll', function () {
+      const Top = document.documentElement.scrollTop;
+      if (Top > 500) {
+        that.goTopDisplay = true
+      } else {
+        that.goTopDisplay = false
+      }
+    });
+  }
 }
 </script>
 
@@ -197,6 +223,20 @@ export default {
             }
           }
         }
+      }
+    }
+    .go-top {
+      position: fixed;
+      width: 5rem;
+      height: 5rem;
+      right: 3rem;
+      bottom: 3rem;
+      background: url('https://aukeyoss.oss-us-west-1.aliyuncs.com/top.png') 50%/100% no-repeat;
+      z-index: 10000;
+      cursor: pointer;
+      display: none;
+      &.show {
+        display: block;
       }
     }
   }
