@@ -24,7 +24,6 @@ export default {
         let rootHtml = document.documentElement;
         //限制展现页面的最小宽度
         rootWidth = rootHtml.clientWidth < 768 ? 768 : rootHtml.clientWidth;
-        // 19.2 = 设计图尺寸宽 / 100（ 设计图的rem = 100 ）
         rem = rootWidth / 1366 * 16;
         // 动态写入样式
         rootHtml.style.fontSize = `${rem}px`;
