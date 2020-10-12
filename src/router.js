@@ -7,8 +7,8 @@ import List from './components/List.vue';
 
 
 const routes = [
-    { path: '/product', component: Product},
-    { path: '/product/list', component: List},
+    { path: '/product/:product', component: Product},
+    { path: '/list/:list', component: List},
     { path: '', component: Home},
 ]
 

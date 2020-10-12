@@ -5,10 +5,12 @@
         <img class="logo" alt="logo" src="../assets/logo.png">
       </router-link>
       <div class="menu-item" v-for="item in menus" :key="item.title" @mouseover="setActiveMenu(item.title)"> 
-        {{item.title}}
+        
+        <router-link :to="'/product/' + item.title" v-if="item.title==='SMART' || item.title==='GADGETS'" >{{item.title}}</router-link>
+        <span v-else>{{item.title}}</span>
         <div class="submenu" :key="item.title" v-bind:class="{ active: activeMenu === item.title}">
           <div class="submenu-item" v-for="i in item.menu" :key="i.title" > 
-            <router-link to='/product'>{{i.title}}</router-link>
+            <router-link :to="'/list/' + i.title">{{i.title}}</router-link>
             <div class="thirdmenu">
               <div class="third-item" v-for="n in i.thirdMenu" :key="n" > 
                 <span>{{n}}</span>
@@ -151,6 +153,16 @@ export default {
           color: #21ccbf;
           &::before {
             width: 100%;
+          }
+        }
+        >a {
+          color: #fff;
+          text-decoration: none;
+          &:hover {
+            color: #21ccbf;
+            &::before {
+              width: 100%;
+            }
           }
         }
         .submenu {
