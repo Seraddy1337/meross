@@ -8,7 +8,7 @@
     </div>
     <div class="section-2">
         <div class="list-wrap" >
-            <div class="item" v-for="item in list" :key="item.title">
+            <div class="item" v-for="item in list" :key="item.title" @click="routerPush(item.title)">
                 <img :src="item.imgSrc" alt=""/>
                 <div class="item-title">
                   {{item.title}}
@@ -49,6 +49,11 @@ export default {
   props: {
 
   },
+  methods: {
+    routerPush: function(i) {
+      this.$router.push('/detail/'+ i)
+    }
+  }
 }
 
 </script>
