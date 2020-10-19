@@ -26,7 +26,7 @@ export default {
        footer: [
         {title: 'Follw us', list: ['Facebook', 'Twitter', 'Instagram', 'Youtube']},
         {title: 'Community ', list: ['Blog', 'Forum']},
-        {title: 'Support', list: ['FAQs', 'Contact us', 'Warranty', 'Cloud Service']},
+        {title: 'Support', list: ['FAQs', 'Contact us', 'Warranty', 'Cloud Service','Downloads','Compatible List','Product Registration','Regulatory Compliance']},
         {title: 'About us', list: ['Our company', 'With your life']},
       ]
     }

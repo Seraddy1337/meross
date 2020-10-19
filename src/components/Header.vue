@@ -8,9 +8,10 @@
         
         <router-link :to="'/product/' + item.title" v-if="item.title==='SMART' || item.title==='GADGETS'" >{{item.title}}</router-link>
         <span v-else>{{item.title}}</span>
-        <div class="submenu" :key="item.title" v-bind:class="{ active: activeMenu === item.title}">
+        <div class="submenu" :key="item.title" :class="{ active: activeMenu === item.title}">
           <div class="submenu-item" v-for="i in item.menu" :key="i.title" > 
             <router-link :to="'/list/' + i.title">{{i.title}}</router-link>
+            <img v-if="i.imgSrc" :src="i.imgSrc" alt="">
             <div class="thirdmenu">
               <div class="third-item" v-for="n in i.thirdMenu" :key="n" > 
                 <span>{{n}}</span>
@@ -20,7 +21,7 @@
         </div>  
       </div>
     </div>
-    <div @click="goTop()" v-bind:class="{ 'show': goTopDisplay, 'go-top': true }">
+    <div @click="goTop()" :class="{ 'show': goTopDisplay, 'go-top': true }">
 
     </div>
   </div>
@@ -37,16 +38,16 @@ export default {
       activeMenu: '',
       menus: [
             { title: 'SMART' , menu: [
-            // { title:  'Smart Plug', thirdMenu: ['Single-hole plug', 'Dual-hole plug', 'Surge protector', 'Outdoor plug'] },
-            // { title:  'Smart Lighting', thirdMenu: ['Light bulb', 'Light strip', 'Ambient light'] },
-            // { title:  'Smart Switch', thirdMenu: ['Wall switch', 'Dimmer switch']},
-            // { title:  'Garage Door Opener', thirdMenu: ['Smart opener', 'Physical remote'] },
-            // { title:  'Smart Home', thirdMenu: ['Thermostat valve and sensor', 'Baby machine', 'Humidifier', 'Remotes'] },
-              { title: 'Smart Plug' },
-              { title: 'Smart Lighting' },
-              { title: 'Smart Switch' },
-              { title: 'Garage Door Opener' },
-              { title: 'Smart Home' },
+            { title:  'Smart Plug', imgSrc: 'https://d2utgrzbxqaq8t.cloudfront.net/public/staticfile/1596264058218/4931749.jpg', thirdMenu: ['Single-hole plug', 'Dual-hole plug', 'Surge protector', 'Outdoor plug'] },
+            { title:  'Smart Lighting', imgSrc: 'https://d2utgrzbxqaq8t.cloudfront.net/public/staticfile/1596264058218/4931749.jpg', thirdMenu: ['Light bulb', 'Light strip', 'Ambient light'] },
+            { title:  'Smart Switch', thirdMenu: ['Wall switch', 'Dimmer switch']},
+            { title:  'Garage Door Opener', thirdMenu: ['Smart opener', 'Physical remote'] },
+            { title:  'Smart Home', thirdMenu: ['Thermostat valve and sensor', 'Baby machine', 'Humidifier', 'Remotes'] },
+              // { title: 'Smart Plug' },
+              // { title: 'Smart Lighting' },
+              // { title: 'Smart Switch' },
+              // { title: 'Garage Door Opener' },
+              // { title: 'Smart Home' },
             ],
           },
           { title: 'GADGETS' , menu: [
@@ -196,6 +197,17 @@ export default {
                   color: #21ccbf;
                   transform: translatey(-0.3rem)
                 } 
+            }
+            img {
+              width: 10rem;
+              height: 8rem;
+              display: block;
+              cursor: pointer;
+              transition: .4s;
+              margin: -0.4rem 0 1rem 0;
+              &:hover {
+                transform: translatey(-0.3rem)
+              } 
             }
             .thirdmenu {
               display: flex;

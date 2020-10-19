@@ -5,7 +5,7 @@
     </div>
     <div class="section-2">
         <div class="list-wrap" >
-            <div class="item" v-for="item in listCompute" :key="item.title">
+            <div class="item" v-for="item in listCompute" :key="item.title" @click="routerPush(item.title)">
                 <img :src="item.imgSrc" alt=""/>
                 <div class="item-title">
                     {{item.title}}
@@ -54,6 +54,9 @@ export default {
   methods: {
     foldToggle: function () {
         this.fold=!this.fold
+    },
+    routerPush: function(i) {
+      this.$router.push('/detail/'+ i)
     }
   },
   computed: {
